@@ -8,12 +8,9 @@ import lombok.NoArgsConstructor;
 
 @Builder
 @Getter
-@AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class OrderLine {
+@AllArgsConstructor
+public class MemberId {
 
-    private Address address;
-    private Receiver receiver;
-    private Integer price;
-    private Integer quantity;
+    private String value;
 }

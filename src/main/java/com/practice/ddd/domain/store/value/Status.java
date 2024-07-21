@@ -1,4 +1,4 @@
-package com.practice.ddd.test.value;
+package com.practice.ddd.domain.store.value;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -8,12 +8,9 @@ import lombok.NoArgsConstructor;
 
 @Builder
 @Getter
-@AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class OrderLine {
+@AllArgsConstructor
+public class Status {
 
-    private Address address;
-    private Receiver receiver;
-    private Integer price;
-    private Integer quantity;
+    private boolean value;
 }

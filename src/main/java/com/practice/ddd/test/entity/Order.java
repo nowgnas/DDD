@@ -1,26 +1,55 @@
 package com.practice.ddd.test.entity;
 
-import java.util.Objects;
+import com.practice.ddd.test.domain.OrderNo;
+import com.practice.ddd.test.value.Orderer;
+import com.practice.ddd.test.value.ShippingInfo;
+import com.practice.ddd.test.value.Address;
+import com.practice.ddd.test.value.Money;
+import com.practice.ddd.test.value.OrderLine;
+import com.practice.ddd.test.value.OrderLines;
+import com.practice.ddd.test.value.Receiver;
+import java.util.List;
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
+@Builder
+@Getter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@AllArgsConstructor
 public class Order {
 
-    private String orderNumber;
+    private OrderNo orderNo;
+    private Address address;
+    private Money money;
+    private Receiver receiver;
+    private Money totalAmounts;
+    private OrderLines orderLines;
+    private ShippingInfo shippingInfo;
+    private Orderer orderer;
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null) {
-            return false;
-        }
-        if (o.getClass() != Order.class) {
-            return false;
-        }
-        Order other = (Order) o;
-        if (this.orderNumber == null) {
-            return false;
-        }
-        return this.orderNumber.equals(other.orderNumber);
+    private void calculateTotalAmounts() {
+        int sum = orderLines.getLines().stream()
+                .mapToInt(ol -> ol.getPrice() * ol.getQuantity()).sum();
+        this.totalAmounts = Money.builder().value(sum).build();
+    }
+
+    public void changeShippingInfo(ShippingInfo shippingInfo) {
+        // action something
+    }
+
+    private void setMoney(Money money) {
+        this.money = money;
+    }
+
+    public void changeOrderLines(List<OrderLine> newLines) {
+        orderLines.changeOrderLines(newLines);
+        this.totalAmounts = orderLines.getTotalAmounts();
+    }
+
+    public void shipTo(ShippingInfo newShippingInfo) {
+
     }
 }

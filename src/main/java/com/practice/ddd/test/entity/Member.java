@@ -1,4 +1,4 @@
-package com.practice.ddd.test.domain;
+package com.practice.ddd.test.entity;
 
 import com.practice.ddd.test.value.Orderer;
 import com.practice.ddd.test.value.ShippingInfo;
@@ -12,13 +12,16 @@ import lombok.NoArgsConstructor;
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
-public class Order {
+public class Member {
 
-    private OrderNo number;
+    private ShippingInfo address;
     private Orderer orderer;
-    private ShippingInfo shippingInfo;
 
-    public void changeShippingInfo(ShippingInfo shippingInfo) {
-        // action something
+    public static Member setOrderer(Orderer orderer) {
+        return Member.builder().orderer(orderer).build();
+    }
+
+    public void changeAddress(ShippingInfo newShippingInfo) {
+        this.address = newShippingInfo;
     }
 }

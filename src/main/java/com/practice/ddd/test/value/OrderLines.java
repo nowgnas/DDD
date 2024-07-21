@@ -1,5 +1,6 @@
 package com.practice.ddd.test.value;
 
+import java.util.List;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -10,10 +11,15 @@ import lombok.NoArgsConstructor;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class OrderLine {
+public class OrderLines {
 
-    private Address address;
-    private Receiver receiver;
-    private Integer price;
-    private Integer quantity;
+    private List<OrderLine> lines;
+
+    public Money getTotalAmounts() {
+        return null;
+    }
+
+    public void changeOrderLines(List<OrderLine> newLines) {
+        this.lines = newLines;
+    }
 }
