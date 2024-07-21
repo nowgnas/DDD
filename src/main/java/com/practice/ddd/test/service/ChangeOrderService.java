@@ -19,9 +19,8 @@ public class ChangeOrderService {
     public void changeShippingInfo(OrderId id, ShippingInfo newShippingInfo,
             boolean useNewShippingAddrAsMemberAddr) {
         Order order = orderRepository.findById(id);
-        if (order == null) {
-            throw new RuntimeException("주문이 존재하지 않음");
-        }
+        order.changeShippingInfo(newShippingInfo);
+
         order.shipTo(newShippingInfo);
         if (useNewShippingAddrAsMemberAddr) {
             Member member = memberRepository.findById(order.getOrderer().getMemberId().getValue());
