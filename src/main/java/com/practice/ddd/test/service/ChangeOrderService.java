@@ -23,7 +23,7 @@ public class ChangeOrderService {
 
         order.shipTo(newShippingInfo);
         if (useNewShippingAddrAsMemberAddr) {
-            Member member = memberRepository.findById(order.getOrderer().getMemberId().getValue());
+            Member member = memberRepository.findById(order.getOrderer().getMemberId().getId());
             member.changeAddress(newShippingInfo);
         }
     }

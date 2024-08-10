@@ -12,11 +12,13 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Money {
 
-    private int value;
+  private int value;
 
-    public Money add(Money money) {
-        return Money.builder()
-                .value(this.getValue() + money.getValue())
-                .build();
-    }
+  public static Money getValue(Integer value) {
+    return Money.builder().value(value).build();
+  }
+
+  public Money add(Money money) {
+    return Money.builder().value(this.getValue() + money.getValue()).build();
+  }
 }

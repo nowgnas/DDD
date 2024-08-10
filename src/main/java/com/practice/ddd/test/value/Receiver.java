@@ -1,5 +1,7 @@
 package com.practice.ddd.test.value;
 
+import javax.persistence.Column;
+import javax.persistence.Embeddable;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -10,9 +12,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
 @Getter
+@Embeddable
 public class Receiver {
+  @Column(name = "receiver_name")
+  private String name;
 
-    private String name;
-    private String phoneNumber;
-
+  @Column(name = "receiver_phone")
+  private String phoneNumber;
 }

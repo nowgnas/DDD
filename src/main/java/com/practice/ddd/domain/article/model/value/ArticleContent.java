@@ -1,20 +1,18 @@
-package com.practice.ddd.test.value;
+package com.practice.ddd.domain.article.model.value;
 
-import java.io.Serializable;
-import javax.persistence.Column;
 import javax.persistence.Embeddable;
+import javax.persistence.Table;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-@Builder
-@Getter
 @Embeddable
+@Getter
+@Table(name = "article_content")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
-public class MemberId implements Serializable {
-  @Column(name = "member_id")
-  private String id;
+public class ArticleContent {
+  private String content;
+  private String contentType;
 }
