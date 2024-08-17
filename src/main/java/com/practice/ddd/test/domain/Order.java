@@ -1,6 +1,6 @@
 package com.practice.ddd.test.domain;
 
-import com.practice.ddd.domain.order.value.OrdererId;
+import com.practice.ddd.domain.order.domain.value.OrdererId;
 import com.practice.ddd.test.value.Orderer;
 import com.practice.ddd.test.value.ShippingInfo;
 import lombok.AccessLevel;

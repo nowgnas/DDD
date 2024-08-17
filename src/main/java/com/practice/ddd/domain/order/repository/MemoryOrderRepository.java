@@ -2,7 +2,7 @@ package com.practice.ddd.domain.order.repository;
 
 import com.practice.ddd.domain.order.service.Specification;
 import com.practice.ddd.test.domain.OrderNo;
-import com.practice.ddd.test.entity.Order;
+import com.practice.ddd.domain.order.domain.entity.Order;
 import java.util.ArrayList;
 import java.util.List;
 

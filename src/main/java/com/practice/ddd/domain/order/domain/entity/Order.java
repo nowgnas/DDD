@@ -1,5 +1,9 @@
-package com.practice.ddd.test.entity;
+package com.practice.ddd.domain.order.domain.entity;
 
+import com.practice.ddd.domain.member.domain.value.MemberGrade;
+import com.practice.ddd.domain.order.domain.value.OrderRequest;
+import com.practice.ddd.domain.order.domain.service.DiscountCalculationService;
+import com.practice.ddd.domain.promotion.model.value.Coupon;
 import com.practice.ddd.test.domain.OrderNo;
 import com.practice.ddd.test.value.Address;
 import com.practice.ddd.test.value.Money;
@@ -52,6 +56,12 @@ public class Order {
   private ShippingInfo shippingInfo;
   private Orderer orderer;
   private OrderState state;
+  private List<Coupon> coupons;
+  private Money paymentAmounts;
+
+  public static Order createOrder(OrderNo orderNo, OrderRequest orderRequest) {
+    return Order.builder().build();
+  }
 
   @Column(name = "state")
   @Enumerated(EnumType.STRING)
@@ -106,4 +116,12 @@ public class Order {
   //  }
 
   public void shipTo(ShippingInfo newShippingInfo) {}
+
+  public void calculateAmounts(DiscountCalculationService discountService, MemberGrade grade) {
+    Money calculatedTotalAmounts = getTotalAmounts();
+    Money discountAmounts =
+        discountService.calculateDiscountAmount(this.orderLines, this.coupons, grade);
+
+    this.paymentAmounts = calculatedTotalAmounts.minus(discountAmounts);
+  }
 }

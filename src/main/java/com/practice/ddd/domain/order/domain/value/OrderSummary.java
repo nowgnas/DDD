@@ -1,4 +1,4 @@
-package com.practice.ddd.domain.order.value;
+package com.practice.ddd.domain.order.domain.value;
 
 public class OrderSummary {
     private String number;

@@ -21,4 +21,8 @@ public class Money {
   public Money add(Money money) {
     return Money.builder().value(this.getValue() + money.getValue()).build();
   }
+
+  public Money minus(Money discountAmounts) {
+    return Money.getValue(this.value - discountAmounts.value);
+  }
 }

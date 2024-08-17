@@ -1,7 +1,7 @@
 package com.practice.ddd.test.service;
 
 import com.practice.ddd.test.entity.Member;
-import com.practice.ddd.test.entity.Order;
+import com.practice.ddd.domain.order.domain.entity.Order;
 import com.practice.ddd.test.repository.MemberRepository;
 import com.practice.ddd.test.repository.OrderRepository;
 import com.practice.ddd.test.value.OrderId;

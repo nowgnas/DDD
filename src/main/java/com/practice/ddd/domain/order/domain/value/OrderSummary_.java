@@ -1,4 +1,4 @@
-package com.practice.ddd.domain.order.value;
+package com.practice.ddd.domain.order.domain.value;
 
 import java.time.LocalDateTime;
 import javax.persistence.metamodel.SingularAttribute;

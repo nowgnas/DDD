@@ -1,9 +1,8 @@
 package com.practice.ddd.domain.order.service;
 
-import com.practice.ddd.domain.order.value.OrderSummary;
-import com.practice.ddd.domain.order.value.OrderSummary_;
+import com.practice.ddd.domain.order.domain.value.OrderSummary;
+import com.practice.ddd.domain.order.domain.value.OrderSummary_;
 import java.time.LocalDateTime;
-import java.util.Locale;
 import java.util.function.Predicate;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;

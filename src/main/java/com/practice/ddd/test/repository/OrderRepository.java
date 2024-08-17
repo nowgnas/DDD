@@ -14,5 +14,5 @@ public interface OrderRepository {
 
     void delete(Order order);
 
-    com.practice.ddd.test.entity.Order findById(OrderId id);
+    com.practice.ddd.domain.order.domain.entity.Order findById(OrderId id);
 }
