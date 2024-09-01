@@ -13,5 +13,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class ProductId implements Serializable {
 
-    private String value;
+  private String value;
+
+  public static ProductId getValue(String itemId) {
+    return ProductId.builder().value(itemId).build();
+  }
 }
